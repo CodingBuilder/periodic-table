@@ -79,14 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
         elementFromNumberQuestion.textContent = `${randomAtomicNumber}`;
     }
     if (atomicNumberQuestion) {
-        getData("../data/elements.json").then((data) => {
+        getData("data/elements.json").then((data) => {
             atomicNumberQuestion.textContent = `${data.elements[randomAtomicElement - 1].symbol}`;
         });
     }
     function changeQuestion(type) {
         if (type === "atomicNumber" && atomicNumberQuestion) {
             randomAtomicElement = Math.floor(Math.random() * SAVE) + 1;
-            getData("../data/elements.json").then((data) => {
+            getData("data/elements.json").then((data) => {
                 atomicNumberQuestion.textContent = `${data.elements[randomAtomicElement - 1].symbol}`;
             });
         }
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         atomicNumberResult &&
         elementFromNumberResult) {
         submitBtn.addEventListener("click", () => {
-            getData("../data/elements.json").then((data) => {
+            getData("data/elements.json").then((data) => {
                 if (atomicNumberAnswer.value ===
                     String(data.elements[randomAtomicElement - 1].number)) {
                     const correct = atomicNumberResult.children[0];

@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (atomicNumberQuestion) {
-    getData("../data/elements.json").then((data) => {
+    getData("data/elements.json").then((data) => {
       atomicNumberQuestion.textContent = `${
         data.elements[randomAtomicElement - 1].symbol
       }`;
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function changeQuestion(type: "atomicNumber" | "elementFromNumber"): void {
     if (type === "atomicNumber" && atomicNumberQuestion) {
       randomAtomicElement = Math.floor(Math.random() * SAVE) + 1;
-      getData("../data/elements.json").then((data) => {
+      getData("data/elements.json").then((data) => {
         atomicNumberQuestion.textContent = `${
           data.elements[randomAtomicElement - 1].symbol
         }`;
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elementFromNumberResult
   ) {
     submitBtn.addEventListener("click", () => {
-      getData("../data/elements.json").then((data) => {
+      getData("data/elements.json").then((data) => {
         // Check for atomic number question (user should enter the atomic number for the symbol)
         if (
           atomicNumberAnswer.value ===
