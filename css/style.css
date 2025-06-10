@@ -1,0 +1,374 @@
+/* Start Main Rules */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #333;
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --main-color: rgb(10, 218, 173);
+}
+*:focus {
+  outline: none;
+  border: none;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+/* End Main Rules */
+
+.page {
+  min-height: 100vh;
+  display: flex;
+}
+.page aside {
+  background-color: #232323;
+  color: white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 15px;
+  width: 230px;
+}
+.page aside p {
+  margin: 20px auto 0;
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  width: fit-content;
+}
+.page aside p::before, .page aside p::after {
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+.page aside p::before {
+  width: 100%;
+  height: 2px;
+  top: calc(100% + 25px);
+}
+.page aside p::after {
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 19px)
+}
+.page aside p i {
+  margin-right: 10px;
+}
+@media (max-width: 750px) {
+  .page aside p::after {
+    width: 10px;
+    height: 10px;
+      top: calc(100% + 21px)
+  }
+  .page aside p span {
+    display: none;
+  }
+  .page aside p i {
+    margin-right: 0;
+  }
+}
+.page aside ul {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.page aside ul li {
+  padding: 20px 0;
+  background-color: #333;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: .3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.page aside ul li::before {
+  content: "";
+  position: absolute;
+  background-color: #232323;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  transition: .3s;
+  z-index: -1;
+}
+.page aside ul li:hover, .page aside ul li.active {
+  background-color: #414141;
+}
+.page aside ul li:hover::before {
+  left: -100%;
+}
+.page aside ul li a {
+  color: white;
+  transition: .3s;
+  font-size: 16px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.page aside ul li:hover a, .page aside ul li.active a {
+  color: var(--main-color);
+}
+.page aside ul li a i {
+  margin-right: 10px;
+}
+@media (max-width: 750px) {
+  .page aside ul li {
+    padding: 10px;
+  }
+  .page aside ul li a span {
+    display: none;
+  }
+  .page aside ul li a i {
+    margin-right: 0;
+  }
+}
+.page main {
+  padding: 30px;
+  flex-grow: 1;
+}
+.page main h2 {
+  color: white;
+  font-size: 60px;
+  text-align: center;
+  margin: 30px 0 0;
+}
+@media(max-width: 750px) {
+  .page main h2 {
+    font-size: 45px;
+  }
+}
+.page main .elements {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-top: 60px;
+  gap: 30px;
+}
+@media (max-width: 750px) {
+  .page main .elements {
+    grid-template-columns: minmax(200px, 1fr);
+  }
+}
+.page main .elements .element {
+  color: white;
+  border: 2px white solid;
+  border-radius: 7px;
+  padding: 20px;
+  transition: .3s;
+}
+.page main .elements .element:hover {
+  transform: translateY(-10px);
+}
+.page main .elements .element .name {
+  display: block;
+  color: #b1b1b1;
+}
+.page main .elements .element .symbol {
+  margin: 10px 0;
+  font-size: 100px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: var(--main-color);
+}
+.page main .elements .element .info {
+  color: #b1b1b1;
+  font-size: 15px;
+}
+.page main .elements .element .info span {
+  display: block;
+}
+.page main .elements .element .info span:not(:last-child) {
+  margin-bottom: 10px;
+}
+.page main .questions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 50px;
+  margin-top: 60px;
+  padding: 0 80px;
+}
+@media(max-width: 750px) {
+  .page main .questions {
+    grid-template-columns: minmax(200px, 1fr);
+    padding: 0;
+  }
+}
+.page main .questions .cont > p {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+.page main .questions .cont > p span {
+  display: none;
+}
+.page main .questions .cont > p .correct {
+  color: rgb(0, 210, 101);
+}
+.page main .questions .cont > p .incorrect {
+  color: rgb(255, 60, 60);
+}
+.page main .questions .question {
+  display: flex;
+  flex-direction: column;
+  border: 2px white solid;
+  border-radius: 7px;
+  transition: .3s;
+}
+.page main .questions .question span:first-of-type {
+  color: white;
+  margin: 20px 15px 0;
+  text-align: center;
+  font-size: 25px;
+}
+@media(max-width: 750px) {
+  .page main .questions .question span:first-of-type {
+    font-size: 14px;
+  }
+}
+.page main .questions .question span:last-of-type {
+  color: var(--main-color);
+  font-size: 150px;
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+}
+@media(max-width: 750px) {
+  .page main .questions .question span:last-of-type {
+    font-size: 80px;
+  }
+}
+.page main .questions .question input {
+  background: none;
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+  border-width: 2px;
+  height: 55px;
+  caret-color: var(--main-color);
+  color: var(--main-color);
+  font-size: 25px;
+  padding: 10px 20px;
+  text-align: center;
+}
+.page main button.submit {
+  margin: 50px auto 0;
+  display: block;
+  background: none;
+  color: var(--main-color);
+  font-size: 22px;
+  border: 1px white solid;
+  outline: none;
+  border-radius: 7px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: .3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.page main button:hover {
+  background-color: #414141;
+}
+.page main button::before {
+  content: "";
+  position: absolute;
+  background-color: #232323;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: .3s;
+}
+.page main button:hover::before {
+  left: 0;
+}
+.page main .settings {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+@media (max-width: 750px) {
+  .page main .settings {
+    grid-template-columns: minmax(200px, 1fr);
+  }
+}
+.page main .settings > div {
+  border: 2px white solid;
+  border-radius: 7px;
+  padding: 20px;
+}
+.page main .settings .number h3 {
+  margin:  0;
+  color: white;
+}
+.page main .settings .number p {
+  line-height: 1.5;
+  color: #b1b1b1;
+}
+@media (max-width: 750px) {
+  .page main .settings .number p {
+    font-size: 13px;
+  }
+}
+.page main .settings .number .set {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+@media (max-width: 750px) {
+  .page main .settings .number .set {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+.page main .settings .number .set input {
+  background: none;
+  border: 1px white solid;
+  outline: none;
+  border-radius: 7px;
+  font-size: 20px;
+  padding: 10px 15px;
+  caret-color: var(--main-color);
+  color: var(--main-color);
+}
+@media (max-width: 750px) {
+  .page main .settings .number .set input {
+    font-size: 14px;
+    max-width: 150px;
+    text-align: center;
+  }
+}
+.page main .settings .number .set button {
+  background: none;
+  color: var(--main-color);
+  font-size: 20px;
+  border: 1px white solid;
+  outline: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: .3s;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+@media (max-width: 750px) {
+  .page main .settings .number .set button {
+    font-size: 14px;
+    padding: 7px 20px;
+  }
+}

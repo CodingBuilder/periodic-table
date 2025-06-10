@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="imgs/icon.png" type="image/png">
+    <link rel="apple-touch-icon" href="imgs/icon.png">
+    <title>Periodic Table</title>
+  </head>
+  <body>
+    <div class="page">
+      <aside>
+        <p><i class="fa-solid fa-tablets fa-fw"></i><span> Periodic Table</span></p>
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-circle-radiation fa-fw"></i><span> Elements</span></a></li>
+          <li class="active"><a href="questions.html"><i class="fa-solid fa-circle-question fa-fw"></i><span> Questions</span></a></li>
+          <li><a href="settings.html"><i class="fa-solid fa-gear fa-fw"></i><span> Settings</span></a></li>
+        </ul>
+      </aside>
+      <main>
+        <h2><i class="fa-solid fa-circle-question fa-fw"></i> Questions</h2>
+        <div class="questions">
+          <div class="cont">
+            <div class="question atomic-number">
+              <span class="quest">What Is The Atomic Number Of This Element ?</span>
+              <span class="symbol"></span>
+              <input type="text">
+            </div>
+            <p class="atomic-number-result">
+              <span class="correct"><i class="fa-solid fa-circle-check"></i> Correct</span>
+              <span class="incorrect"><i class="fa-solid fa-circle-xmark"></i> Incorrect</span>
+            </p>
+          </div>
+          <div class="cont">
+            <div class="question element-from-number">
+              <span class="quest">Which Element Has This Atomic Number ?</span>
+              <span class="number"></span>
+              <input type="text">
+            </div>
+            <p class="element-from-number-result">
+              <span class="correct"><i class="fa-solid fa-circle-check"></i> Correct</span>
+              <span class="incorrect"><i class="fa-solid fa-circle-xmark"></i> Incorrect</span>
+            </p>
+          </div>
+        </div>
+        <button class="submit">Submit</button>
+      </main>
+    </div>
+    <script src="dist/main.js"></script>
+  </body>
+</html>
