@@ -36,7 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 period.textContent = `Period: ${data.elements[i].period}`;
                 info.appendChild(period);
                 let group = document.createElement("span");
-                group.textContent = `Group: ${data.elements[i].group}`;
+                if (data.elements[i].group < 3) {
+                    group.textContent = `Group: ${data.elements[i].group}A`;
+                }
+                else if (data.elements[i].group > 12 && data.elements[i].group < 18) {
+                    group.textContent = `Group: ${data.elements[i].group - 10}A`;
+                }
+                else if (data.elements[i].group === 18) {
+                    group.textContent = `Group: 18 or 0`;
+                }
+                else {
+                    group.textContent = `Group: ${data.elements[i].group - 2}B`;
+                }
                 info.appendChild(group);
             }
         });
