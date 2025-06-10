@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     const list = document.querySelector(".page main .elements");
     if (list) {
-        getData("../data/elements.json").then((data) => {
+        getData("data/elements.json").then((data) => {
             for (let i = 0; i < data.elements.length; i++) {
                 let elementCard = document.createElement("div");
                 elementCard.className = "element";
