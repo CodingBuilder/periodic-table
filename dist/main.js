@@ -46,7 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     group.textContent = `Group: 18 or 0`;
                 }
                 else {
-                    group.textContent = `Group: ${data.elements[i].group - 2}B`;
+                    if (data.elements[i].group < 8) {
+                        group.textContent = `Group: ${data.elements[i].group}B`;
+                    }
+                    else if (data.elements[i].group >= 8 && data.elements[i].group <= 10) {
+                        group.textContent = `Group: 8B`;
+                    }
+                    else {
+                        group.textContent = data.elements[i].group === 11
+                            ? `Group: 1B` : `Group: 2B`;
+                    }
                 }
                 info.appendChild(group);
             }
